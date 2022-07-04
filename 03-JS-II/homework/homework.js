@@ -71,14 +71,14 @@ function esDiezOCinco(numero) {
   // Devuelve "true" si "numero" es 10 o 5
   // De lo contrario, devuelve "false"
   // Tu código:
-  return (numero === 10 || numero === 5) ? true : false;
+  return (numero === 10 || numero === 5);
 }
 
 function estaEnRango(numero) {
   // Devuelve "true" si "numero" es menor que 50 y mayor que 20
   // De lo contrario, devuelve "false"
   // Tu código:
-  return (numero < 50 && numero > 20) ? true : false;
+  return (numero < 50 && numero > 20);
 }
 
 function esEntero(numero) {
@@ -89,7 +89,7 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  return (Math.floor(numero) === numero) ? true : false;
+  return (Math.floor(numero) === numero);
 }
 
 function fizzBuzz(numero) {
@@ -147,8 +147,7 @@ function esVerdadero(valor){
   //Escribe una función que reciba un valor booleano y retorne “Soy verdadero” 
   //si su valor es true y “Soy falso” si su valor es false.
   //Escribe tu código aquí
-  return (valor === true) ? "Soy verdadero"
-  : "Soy falso";
+  return (valor === true) ? "Soy verdadero" : "Soy falso";
 }
 
 function tablaDelSeis(){
