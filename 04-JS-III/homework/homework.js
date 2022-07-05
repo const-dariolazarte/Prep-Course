@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { map } = require("@11ty/eleventy/src/TemplateGlob");
+
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
@@ -132,8 +134,8 @@ function multiplicarArgumentos() {
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-  let over18 = arreglo.filter(arrayFiltered);
-  function arrayFiltered(value, index, array) {
+  const over18 = arreglo.filter(arrayFiltered);
+  function arrayFiltered(value) {
     return value > 18;
   }
   return over18.length;
@@ -166,8 +168,12 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  
-  
+  for (let i = 0; i < arreglo.length; i++) {
+    if (arreglo[i] === arreglo[i+1]) {
+      return true;
+    }
+  }
+  return false;
 } 
 
 
@@ -176,15 +182,38 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  const newArray = array.filter(aFewMonths);
+  function aFewMonths(value) {
+    if (value === "Enero" || value === "Marzo" || value === "Noviembre") {
+      return value;
+    } 
+  }
+  if (newArray.length === 3) {
+    return newArray;
+  } else {
+    return "No se encontraron los meses pedidos";
+  }
 }
-
 
 function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
+  const newArray = array.filter(over100);         // usando el método filter
+  function over100(value) {
+    return value > 100;
+  }
+  return newArray;
 }
 
+  /* const newArray = [];               //usando ciclo for
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 100) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+} */
 
 function breakStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
@@ -194,7 +223,31 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
+
+ /*  let i = 0;                                  //mucho más código con break
+  const numeroMasDos = [];
+  for (i = 0; i < 10; i++) {
+    numeroMasDos.push(numero += 2);  
+    if (numero === i) break;
+  }
+  if (i < 10) {
+    return "Se interrumpió la ejecución";
+  } else {
+    return numeroMasDos;
+  }
+} */
+
+  let i = 0;                                  //menos código sin break;
+  const numeroMasDos = [];
+  for (i = 0; i < 10; i++) {
+    numeroMasDos.push(numero += 2);  
+    if (numero === i) {
+      return "Se interrumpió la ejecución"
+    }
+  }
+    return numeroMasDos;
 }
+
 
 
 function continueStatement(numero) {
@@ -204,6 +257,13 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  let i = 0;                                  //menos código sin break;
+  const numeroMasDos = [];
+  for (i = 0; i < 10; i++) {
+    if (i === 5) continue;
+    numeroMasDos.push(numero += 2);
+  }
+  return numeroMasDos;
 }
 
 
