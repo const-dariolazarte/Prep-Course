@@ -78,7 +78,7 @@ function capToFront(s) {
   //Escribe tu código aquí
   const upperCases = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜ';
   const lowerCases = 'abcdefghijklmnopqrstuvwxyzáéíóúü';
-  
+
   const array = [];
   for (const letter of s) {
     for (const upperCase of upperCases) {
@@ -144,7 +144,7 @@ function deleteAbc(cadena) {
 
   for (const i of cadena) {
     for (const j of abcLess) {
-      if (i ===j) {
+      if (i === j) {
         array.push(i);
       }
     }
@@ -172,18 +172,23 @@ function buscoInterseccion(arreglo1, arreglo2) {
   //Escribe tu código aquí  
   const arreglo3 = [];
 
-  for (let i = 0; i < arreglo1.length; i++) {
+  /* for (let i = 0; i < arreglo1.length; i++) {
     for (let j = 0; j < arreglo2.length; j++) {
       if (arreglo1[i] === arreglo2[j]) {
         arreglo3.push(arreglo1[i]);
       }
     }
-  }
+  } */
 
+  arreglo1.forEach(i => {
+    arreglo2.forEach(j => {
+      if (i === j) {
+        arreglo3.push(i);
+      }
+    });
+  });
   return arreglo3;
 }
-
-
 
 // No modificar nada debajo de esta línea
 // --------------------------------
