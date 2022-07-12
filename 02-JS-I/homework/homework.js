@@ -147,13 +147,17 @@ function esPositivo(numero) {
   //Si el número es positivo, devolver ---> "Es positivo"
   //Si el número es negativo, devolver ---> "Es negativo"
   //Si el número es 0, devuelve false
-  if (numero > 0) {
+ /*  if (numero > 0) {
     return "Es positivo";
   } else if (numero < 0) {
     return "Es negativo";
   } else {
     return false;
-  }
+  } */
+
+  return (numero > 0) ? 'Es positivo'
+  : (numero < 0) ? 'Es negativo'
+  : false;
 }
 
 
@@ -168,7 +172,8 @@ function combinarNombres(nombre, apellido) {
   // Devuelve "nombre" y "apellido" combinados en una string y separados por un espacio.
   // Ejemplo: "Soy", "Henry" -> "Soy Henry"
   // Tu código:
-  return nombre + " " + apellido;
+  //return nombre + " " + apellido;
+  return `${nombre} ${apellido}`;
 }
 
 function obtenerSaludo(nombre) {
@@ -220,7 +225,7 @@ function esVocal(letra){
     return "Es vocal";
   } else {
     return "Dato incorrecto";
-}
+  }
 }
 
 
